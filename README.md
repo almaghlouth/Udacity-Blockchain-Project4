@@ -178,7 +178,7 @@ Example:
         ]
 
 ### Get star (block) data by block height
-
+ 
 Type: GET request
 Address: http://localhost:8000/block/{HEIGHT}
 Params: 
@@ -209,4 +209,3 @@ Example:
 ## Student Info
 
 Abdullah Almaghlouth
-a.h.almaghlouth@gmail.com
