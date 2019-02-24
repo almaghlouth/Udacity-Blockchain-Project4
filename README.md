@@ -1,7 +1,6 @@
 # Blockchain Project 4 v2
 
-This project is Built on top of project 3 with an alteration to fit the stars registration blockchain
-
+This project is built on top of project 3 with an alteration to fit the stars registration blockchain.
 
 ## Getting Started
 
@@ -10,25 +9,28 @@ you can also delete "miniChain" folder to reset the current saved chain.
 
 ## how to run it
 
-1- CD to the project folder.
-2- install the app by typing in the terminal "npm install"
-3- run the app.js by typing in the terminal "node app.js"
-4- you can run it through the restuful API or the directly commands in app.js 
+1. CD to the project folder.
+2. install the app by typing in the terminal "npm install"
+3. run the app.js by typing in the terminal "node app.js"
+4. you can run it through the restuful API or the directly commands in app.js
 
 ## Interaction with the chain through the RESTful API
 
 ### Request Validation
 
-Type: POST request
-Address: http://localhost:8000/requestValidation
-Params: 
-        - address (wallet address)
+- Type: `POST request`
+- Address: http://localhost:8000/requestValidation
+- Params:
 
-Return: JSON Object
+        address (wallet address)
 
-Example: 
+- Return: `JSON Object`
+
+#### Example:
+
     Request:
         { "address":"15DBRdghUuYJmCNmaa2MSJnuwd3y5x6MKK" }
+
     Return:
         {
             "WalletAddress": "15DBRdghUuYJmCNmaa2MSJnuwd3y5x6MKK",
@@ -39,20 +41,23 @@ Example:
 
 ### Validate Request
 
-Type: POST request
-Address: http://localhost:8000/message-signature/validate
-Params: 
-        - address (wallet address)
-        - signature (signed message from wallet address with recived message)
+- Type: `POST request`
+- Address: http://localhost:8000/message-signature/validate
+- Params:
 
-Return: JSON Object
+        address (wallet address)
+        signature (signed message from wallet address with recived message)
 
-Example: 
+- Return: `JSON Object`
+
+#### Example:
+
     Request:
         {
         "address":"15DBRdghUuYJmCNmaa2MSJnuwd3y5x6MKK",
         "signature":"IEDGs4AI3QybCtPF0GRJ6EBTZO/Wof3MAddOnLX9udeUc241VHghThq9qVGqUeT0a6hoevYMULS2IWEFriLbZS0="
         }
+
     Return:
         {
             "registerStar": true,
@@ -67,15 +72,17 @@ Example:
 
 ### Add star (create block)
 
-Type: POST request
-Address: http://localhost:8000/block
-Params: 
-        - address (wallet address)
-        - star object (star data and story)
+- Type: `POST request`
+- Address: http://localhost:8000/block
+- Params:
 
-Return: JSON Object
+        address (wallet address)
+        star object (star data and story)
 
-Example: 
+- Return: `JSON Object`
+
+#### Example:
+
     Request:
         {
             "address": "15DBRdghUuYJmCNmaa2MSJnuwd3y5x6MKK",
@@ -85,6 +92,7 @@ Example:
                         "story": "Found star using https://www.google.com/sky/"
                     }
         }
+
     Return:
         {
             "hash": "fbdb518a41b77e3fd1c098312a1c1ce73c42a83449ccd8dd811798f0727fda9e",
@@ -104,16 +112,18 @@ Example:
 
 ### Get star data by hash
 
-Type: GET request
-Address: http://localhost:8000/stars/hash:{HASH}
+- Type: `GET request`
+- Address: http://localhost:8000/stars/hash:{HASH}
 
-        - hash (block hash)
+        hash (block hash)
 
-Return: JSON Object
+- Return: `JSON Object`
 
-Example: 
-    Request:        
-       http://localhost:8000/stars/hash:fbdb518a41b77e3fd1c098312a1c1ce73c42a83449ccd8dd811798f0727fda9e    
+#### Example:
+
+    Request:
+       http://localhost:8000/stars/hash:fbdb518a41b77e3fd1c098312a1c1ce73c42a83449ccd8dd811798f0727fda9e
+
     Return:
         {
             "hash": "fbdb518a41b77e3fd1c098312a1c1ce73c42a83449ccd8dd811798f0727fda9e",
@@ -133,16 +143,19 @@ Example:
 
 ### Get all stars data by owner wallet address
 
-Type: GET request
-Address: http://localhost:8000/stars/address:{ADDRESS}
-Params: 
-        - Address (block hash)
+- Type: `GET request`
+- Address: http://localhost:8000/stars/address:{ADDRESS}
+- Params:
 
-Return: JSON Object
+        Address (block hash)
 
-Example: 
-    Request:        
-       http://localhost:8000/stars/address:15DBRdghUuYJmCNmaa2MSJnuwd3y5x6MKK     
+- Return: `JSON Object`
+
+#### Example:
+
+    Request:
+       http://localhost:8000/stars/address:15DBRdghUuYJmCNmaa2MSJnuwd3y5x6MKK
+
     Return:
         [
             {
@@ -178,17 +191,20 @@ Example:
         ]
 
 ### Get star (block) data by block height
- 
-Type: GET request
-Address: http://localhost:8000/block/{HEIGHT}
-Params: 
-        - height (block height)
 
-Return: JSON Object
+- Type: `GET request`
+- Address: http://localhost:8000/block/{HEIGHT}
+- Params:
 
-Example: 
-    Request:        
-       http://localhost:8000/block/0      
+        height (block height)
+
+- Return: `JSON Object`
+
+#### Example:
+
+    Request:
+       http://localhost:8000/block/0
+
     Return:
         {
             "hash": "fbdb518a41b77e3fd1c098312a1c1ce73c42a83449ccd8dd811798f0727fda9e",
